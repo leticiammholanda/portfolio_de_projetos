@@ -1,190 +1,709 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title> Projeto de Portfólio de Ciencia de Dados </title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Letícia Holanda — Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    :root {
+      --bg:        #0d1117;
+      --bg2:       #161b22;
+      --bg3:       #21262d;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --text:      #e6edf3;
+      --muted:     #8b949e;
+      --border:    #30363d;
+      --card-bg:   #161b22;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+    html { scroll-behavior: smooth; }
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Portfólio de Projeto </strong> de Ciência de Dados  </a>
-									
-								</header>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-							<!-- Banner -->
-								<section id="banner">
-									<div class="content">
-										<header>
-											<h1>Oi! Seja muito bem-vindo (a) ao meu portfólio de projetos de Ciência de Dados.<br />
-											
-										</header>
-										<p>Nessa página, eu demonstro minhas habilidades de resolver problemas de negócio
-utilizando conceitos e ferramentas da Ciência de Dados, através de projetos com dados
-públicos.<br />
-										Você vai encontrar também, minhas experiências profissionais, habilidades,
-ferramentas e conceitos envolvendo a Ciência de Dados. <br />Sinta-se à vontade para entrar em contato através dos links no final da página.</p>
-										</div>
-									<span class="image object">
-										<img src="images/perfil.jpg" alt="" />
-									</span>
-								</section>
-							
-								<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Sobre Mim </h1>
-									</header>
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,17,23,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: .875rem; font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
 
-									<!-- Content -->
-										<h2 id="content">Meu nome é Leticia Holanda</h2>
-										<p>Sou formada em Licenciatura em Química e cursando Sistema de rede para internet.</p>
-										<p>Com experiência pratica há mais de 6 anos na área da educação, em 2022, resolvi alçar novos voos saindo da minha zona de conforto e me dedicando à área de Tecnologia, trabalho com projetos sobre Ciência de Dados, para adquirir experiência na solução de problemas de negocio e domínio sobre as ferramentas de analise de dados.</p>
-										<p>Na minha vida profissional, sempre busquei entregar as melhores soluções possíveis, me preocupando sempre com a eficiência e economia de recursos. Estou buscando uma oportunidade como cientista de dados júnior ou analista de dados para continuar a aprimorar minhas habilidades e contribuir para o sucesso da empresa.</p>
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: .25;
+    }
+    .hero-glow {
+      position: absolute; top: 10%; right: 5%;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(88,166,255,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; max-width: 700px; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(88,166,255,.1);
+      border: 1px solid rgba(88,166,255,.3);
+      color: var(--accent);
+      font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .8rem; border-radius: 100px; margin-bottom: 1.5rem;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--text);
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero-name span { color: var(--accent); font-style: italic; }
+    .hero-role {
+      font-size: 1.25rem; color: var(--muted); font-weight: 300;
+      margin: 1.2rem 0 2rem;
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-desc {
+      font-size: 1rem; color: var(--muted); max-width: 560px;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;
+      animation: fadeUp .7s .4s ease both;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.6rem; border-radius: 8px;
+      font-size: .9rem; font-weight: 600; text-decoration: none;
+      transition: all .2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--accent); color: #0d1117;
+    }
+    .btn-primary:hover { background: #79b8ff; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
 
-								<section>
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Habilidades</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Linguagens de Programação e Banco de Dados</h3>
-															<ul>
-																<li>Python com foco em análise de dados.</li>
-																<li>SQL para extração de dados.</li>
-																<li>Banco de Dados SQLite e MySQL.</li>
-															</ul>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Estatística e Machine Learning</h3>
-															<ul>
-																<li>Estatística descritiva ( localização, dispersão, assimetria, kurtosis, densidade ).</li>
-																<li>Algoritmos de Regressão, classificação, clusterização e "learn to rank".</li>
-																<li>Técnicas de balanceamento dos dados, seleção de atributos e redução de dimensionalidade.</li>
-																<li>Métricas de performance dos algoritmos ( RMSE, MAE, MAPE, Confusion Matrix,Precisão, Recall, Curva ROC, Curva Lift, AUC, Silhouette Score, DB-Index )</li>
-															    <li>Pacotes de Machine Learning: Sklearn e Scipy</li>		
-															</ul>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Visualização de Dados</h3>
-												<li>Matplotlib, Seaborn, Plotly e Bokeh </li>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Engenharia de Software</h3>
-												<li>Git, Github e Gitlab</li>
-												<li>Streamlit, Flask, Python API's.</li>
-												<li>Cloud Render e AWS Amazon</li>
-												
-												
-											</div>
-										</article>
-									</div>
-								</section>
-							<!-- Content -->
-							<section>
-								<header class="main">
-									<h1>Experiência Profissionais </h1>
-								</header>
+    /* ─── SECTIONS ─── */
+    section { padding: 100px 5%; }
+    .section-label {
+      font-size: .75rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2; color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .section-subtitle { color: var(--muted); max-width: 600px; margin-bottom: 3rem; }
 
-								<!-- Content -->
-									<h2 id="content">Projetos completos de Ciência de Dados</h2>
-									<p>Construção de soluções de dados para problemas de negócio, próximos dos desafios
-reais das empresas, utilizando dados públicos de competições de Ciência de Dados,
-onde eu abordei o problema desde a concepção do desafio de negócio até a
-publicação do algoritmo treinado em produção, utilizando ferramentas de Cloud
-Computing.</p>
-									<h2 id="content">Analista do Sucesso do Cliente Jr </h2>
-									<p>Atendimento aos chats, Reuniões de implantação, Levantamento de quais contas precisam de atenção, Realizar Upsell e Cross sell e  abertura de chamados.</p>
-									<h2 id="content">Professora da Secretaria de Educação do Piauí</h2>
-									<p>Exerço atividade de magistério na minha área de formação acadêmica (Química), em que ministro aulas para alunos da faixa etária entre 14 e 50 anos e realizo os planos de ações e a captação de novos alunos para a formação de turm</p>
-									<h2 id="content">Gerente de academia </h2>
-									<p>Captação de novos alunos, formulação de programas de fidelidade , além de cuidar de toda a parte administrativa. </p>
-									
-							<section>
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Projetos em Ciência de Dados</h2>
-									</header>
-									<div class="posts">
-										<article>
-											<a href="#" class="image"><img src="images/1.jpg" alt="" /></a>
-											<h3>Desenvolvimento de um Painel Gerencial para Negócio
-com o Stremlit</h3>
-											<p>Nesse projeto, os conceitos de Programação em Python, manipulação de
-dados, pensamento estratégico e lógica de negócio, junto com ferramentas
-de desenvolvimetno web como o Streamlit e Github, foram usados para
-desenvolver um painel gerencial com as principais métricas de uma empresa
-marketplace de delivery de comida na India.</p>
-											<p>O resultado final do projeto foi um painel hospedado em um ambiente Cloud
-e disponibilizado através de um link web. O painel pode ser acessado por
-qualquer dispositivo conectado na internet.</p>
-											<h4><b>Ferramentas utilizadas: </b></h4>
-											<p> Python, Pandas, Jupyter Lab, Jupyter Notebook .<br>
-															Terminal, Google Colab.<br>
-															Streamlit,Streamlit Cloud.<br>
-															Git, GitHub.<br>
-															</p>
-											<ul class="actions">
-												<li><a href="https://github.com/leticiammholanda/curry_company" class="button">Saiba Mais</a></li>
-											</ul>
-											
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/3.jpg" alt="" /></a>
-											<h3> Regressão de Séries Temporais / Previsão de Vendas</h3>
-											<p> Previsão de vendas para as próximas 6 semanas da rede de farmácias Rossmann,
-usando dados históricos de vendas para treinar modelos de aprendizado de máquina,
-e entregar um chatbot do Telegram como produto final.</p>
-												<h4><b>Ferramentas utilizadas: </b></h4>
-											<p> Python, Pandas, Pyenv, Jupyter Notebook e PyCharm.<br>
-															BorutaPy, NumPy, Scikit-Learn e SciPy.<br>
-															Matplotlib e Seaborn.<br>
-															Git, GitHub e Gitlab.<br>
-															Flask, Render e Telegram.</p>
-											
-										<ul class="actions">
-												<li><a href="https://github.com/leticiammholanda/test-reder-ap-" class="button">Saiba Mais</a></li>
-											</ul>
-										
-									</div>
-									
-								</section>
-<!-- Content -->
-								<section>
-									<header class="main">
-										<h2> Entre em contato</h2>
-									</header>
-									<p>Qualquer dúvida ou sugestão entre em contato </p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="#">leticiammholanda2@gmail.com</a></li>
-										<li class="icon brands fa-linkedin"><a href= "https://www.linkedin.com/in/leticiammholanda/">LinkedIn</a></li>
-																			
-								<section>
+    /* ─── ABOUT ─── */
+    #sobre { background: var(--bg2); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+      margin-top: 2rem;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 1rem; }
+    .about-text p strong { color: var(--text); }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .stat-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem;
+      transition: border-color .2s;
+    }
+    .stat-card:hover { border-color: var(--accent); }
+    .stat-num {
+      font-family: var(--serif); font-size: 2.5rem;
+      color: var(--accent); line-height: 1;
+    }
+    .stat-label { color: var(--muted); font-size: .875rem; margin-top: .3rem; }
+
+    /* ─── SKILLS ─── */
+    #habilidades { background: var(--bg); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.8rem;
+      transition: all .25s;
+    }
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(88,166,255,.08);
+    }
+    .skill-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .skill-card h3 {
+      font-family: var(--serif); font-size: 1.1rem;
+      color: var(--text); margin-bottom: .8rem;
+    }
+    .skill-card ul { list-style: none; }
+    .skill-card li {
+      color: var(--muted); font-size: .9rem;
+      padding: .25rem 0;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .skill-card li::before { content: "▸"; color: var(--accent); font-size: .7rem; flex-shrink: 0; }
+
+    /* ─── EXPERIENCE ─── */
+    #experiencia { background: var(--bg2); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -2.4rem; top: .4rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--bg2), 0 0 0 5px rgba(88,166,255,.3);
+    }
+    .timeline-date {
+      font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: .3rem;
+    }
+    .timeline-title {
+      font-family: var(--serif); font-size: 1.3rem; color: var(--text);
+    }
+    .timeline-company {
+      color: var(--muted); font-size: .9rem; margin: .2rem 0 .8rem;
+    }
+    .timeline-list { list-style: none; }
+    .timeline-list li {
+      color: var(--muted); font-size: .9rem;
+      padding: .2rem 0; display: flex; gap: .5rem;
+    }
+    .timeline-list li::before { content: "→"; color: var(--accent2); flex-shrink: 0; }
+
+    /* ─── PROJECTS ─── */
+    #projetos { background: var(--bg); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: all .25s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(88,166,255,.1);
+    }
+    .project-header {
+      background: linear-gradient(135deg, var(--bg3), var(--bg2));
+      padding: 2rem; min-height: 120px;
+      display: flex; align-items: flex-start; gap: 1rem;
+    }
+    .project-emoji { font-size: 2.5rem; flex-shrink: 0; }
+    .project-header-text h3 {
+      font-family: var(--serif); font-size: 1.15rem;
+      color: var(--text); line-height: 1.3;
+    }
+    .project-type {
+      font-size: .75rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent2);
+      margin-top: .3rem;
+    }
+    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .project-body p { color: var(--muted); font-size: .9rem; flex: 1; }
+    .project-tags {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0;
+    }
+    .tag {
+      background: rgba(88,166,255,.08);
+      border: 1px solid rgba(88,166,255,.2);
+      color: var(--accent);
+      font-size: .75rem; font-weight: 600;
+      padding: .2rem .6rem; border-radius: 4px;
+    }
+    .project-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; gap: .75rem;
+    }
+    .project-link {
+      font-size: .85rem; font-weight: 600;
+      color: var(--accent); text-decoration: none;
+      display: flex; align-items: center; gap: .35rem;
+      transition: opacity .2s;
+    }
+    .project-link:hover { opacity: .7; }
+
+    /* ─── CONTACT ─── */
+    #contato { background: var(--bg2); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .contact-text p { color: var(--muted); margin-bottom: 1.5rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .8rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text); text-decoration: none;
+      font-size: .95rem; font-weight: 500;
+      transition: all .2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateX(4px);
+    }
+    .contact-link-icon { font-size: 1.3rem; width: 2rem; text-align: center; }
+    .contact-cta {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem;
+      text-align: center;
+    }
+    .contact-cta h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: .8rem; }
+    .contact-cta p { color: var(--muted); margin-bottom: 1.5rem; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg); border-top: 1px solid var(--border);
+      text-align: center; padding: 2rem;
+      color: var(--muted); font-size: .85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">Letícia Holanda</a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Disponível para novas oportunidades</span>
+      <h1 class="hero-name">Letícia<br /><span>Holanda</span></h1>
+      <p class="hero-role">Desenvolvedora de Automações · Analista de Dados · Cientista de Dados</p>
+      <p class="hero-desc">
+        Transformo processos manuais em fluxos automatizados e dados brutos em decisões estratégicas.
+        Atuando no cruzamento entre tecnologia jurídica, dados e ciência de dados.
+      </p>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn btn-primary">Ver Projetos →</a>
+        <a href="#contato" class="btn btn-secondary">Entre em Contato</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <p class="section-label">Sobre mim</p>
+    <h2 class="section-title">Quem sou eu</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Sou <strong>Letícia Holanda</strong>, formada em Licenciatura em Química e cursando
+          Tecnologia em Sistemas de Redes para Internet (3º período) na <strong>UESPI</strong>.
+        </p>
+        <p>
+          Com mais de <strong>6 anos de experiência na educação</strong>, em 2022 migrei para a área de
+          Tecnologia, onde encontrei minha paixão em <strong>automação de processos e análise de dados</strong>.
+        </p>
+        <p>
+          Atualmente desenvolvo soluções tecnológicas para um escritório de advocacia, automatizando
+          fluxos jurídicos e trabalhistas com Python. Paralelamente, aprofundo meus conhecimentos em
+          Ciência de Dados, Machine Learning e Engenharia de Dados.
+        </p>
+        <p>
+          Busco uma oportunidade como <strong>Cientista de Dados Júnior</strong> ou
+          <strong>Analista de Dados</strong> para continuar crescendo e gerar impacto real com dados.
+        </p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat-card">
+          <div class="stat-num">6+</div>
+          <div class="stat-label">Anos de experiência profissional</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Automações desenvolvidas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Projetos de Ciência de Dados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Formações acadêmicas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades">
+    <p class="section-label">Competências</p>
+    <h2 class="section-title">Habilidades Técnicas</h2>
+    <p class="section-subtitle">Ferramentas e tecnologias que uso no dia a dia para resolver problemas reais.</p>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">🐍</div>
+        <h3>Linguagens & Banco de Dados</h3>
+        <ul>
+          <li>Python (principal) — automação e análise de dados</li>
+          <li>JavaScript (noções básicas)</li>
+          <li>SQL para extração e manipulação de dados</li>
+          <li>SQLite e MySQL</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙️</div>
+        <h3>Automação de Processos</h3>
+        <ul>
+          <li>Automação de consultas no PJe e e-Proc</li>
+          <li>eSocial: eventos, extração de XML, papéis de trabalho</li>
+          <li>SEFIP, PERDCOMP e eCAC</li>
+          <li>Extração de dados de PDF e sistemas gov.</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🤖</div>
+        <h3>Machine Learning & Estatística</h3>
+        <ul>
+          <li>Algoritmos de Regressão, Classificação e Clusterização</li>
+          <li>Seleção de atributos e redução de dimensionalidade</li>
+          <li>Métricas: RMSE, MAE, Confusion Matrix, ROC, AUC</li>
+          <li>Pacotes: Scikit-Learn, SciPy, BorutaPy</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">📊</div>
+        <h3>Dados & Visualização</h3>
+        <ul>
+          <li>Power BI — dashboards gerenciais</li>
+          <li>Matplotlib, Seaborn, Plotly, Bokeh</li>
+          <li>Pandas, NumPy para manipulação de dados</li>
+          <li>Estatística descritiva aplicada</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🚀</div>
+        <h3>Engenharia & DevOps</h3>
+        <ul>
+          <li>Git, GitHub e GitLab</li>
+          <li>Streamlit, Flask, APIs em Python</li>
+          <li>Deploy em Cloud: Render e AWS</li>
+          <li>Raciocínio lógico e resolução de problemas</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">🎓</div>
+        <h3>Formação Acadêmica</h3>
+        <ul>
+          <li>Licenciatura em Química — Concluída</li>
+          <li>Tecnologia em Sistemas de Redes — UESPI (cursando, 3º período)</li>
+          <li>Projetos práticos de Ciência de Dados</li>
+          <li>Portfólio público no GitHub</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section id="experiencia">
+    <p class="section-label">Trajetória</p>
+    <h2 class="section-title">Experiência Profissional</h2>
+    <p class="section-subtitle">Minha jornada combinando educação, gestão e tecnologia.</p>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2022 — Atual</div>
+        <div class="timeline-title">Desenvolvedora de Automações</div>
+        <div class="timeline-company">Escritório de Advocacia · Piauí, Brasil</div>
+        <ul class="timeline-list">
+          <li>Automação de pesquisa e acompanhamento de processos no PJe e e-Proc</li>
+          <li>Automação de solicitação de eventos e extração de XML do eSocial</li>
+          <li>Elaboração de papéis de trabalho para análise do eSocial</li>
+          <li>Automação dos processos SEFIP e PERDCOMP</li>
+          <li>Extração de dados de PDFs e do portal eCAC (Receita Federal)</li>
+          <li>Desenvolvimento de dashboards e relatórios com Power BI</li>
+        </ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2022</div>
+        <div class="timeline-title">Analista de Sucesso do Cliente Jr.</div>
+        <div class="timeline-company">Empresa de Tecnologia (SaaS)</div>
+        <ul class="timeline-list">
+          <li>Atendimento via chat e reuniões de implantação com clientes</li>
+          <li>Levantamento de contas em risco e ações de retenção</li>
+          <li>Upsell, cross-sell e abertura de chamados técnicos</li>
+        </ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">2016 — 2022</div>
+        <div class="timeline-title">Professora de Química</div>
+        <div class="timeline-company">Secretaria de Educação do Piauí</div>
+        <ul class="timeline-list">
+          <li>Magistério em Química para alunos de 14 a 50 anos</li>
+          <li>Elaboração de planos de ação e captação de novos alunos</li>
+        </ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Período anterior</div>
+        <div class="timeline-title">Gerente de Academia</div>
+        <div class="timeline-company">Academia · Piauí, Brasil</div>
+        <ul class="timeline-list">
+          <li>Captação de novos alunos e programas de fidelidade</li>
+          <li>Gestão administrativa completa da unidade</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <p class="section-label">Portfólio</p>
+    <h2 class="section-title">Projetos em Destaque</h2>
+    <p class="section-subtitle">Soluções desenvolvidas em Ciência de Dados e automação com dados públicos e reais.</p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-emoji">🍛</div>
+          <div class="project-header-text">
+            <h3>Painel Gerencial — Marketplace de Delivery</h3>
+            <div class="project-type">Análise · Dashboard · Streamlit</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Desenvolvimento de um painel gerencial interativo com as principais métricas de uma empresa de delivery na Índia. O dashboard foi hospedado em cloud e é acessível de qualquer dispositivo.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/leticiammholanda/curry_company" class="project-link" target="_blank">
+            ↗ Ver no GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-emoji">💊</div>
+          <div class="project-header-text">
+            <h3>Previsão de Vendas — Rede de Farmácias Rossmann</h3>
+            <div class="project-type">Machine Learning · Séries Temporais</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Modelo de ML para previsão de vendas nas próximas 6 semanas, com deploy via Telegram bot. Abrangeu desde o entendimento do negócio até a publicação em produção.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Telegram API</span>
+            <span class="tag">Render</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/leticiammholanda/test-reder-ap-" class="project-link" target="_blank">
+            ↗ Ver no GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-emoji">⚖️</div>
+          <div class="project-header-text">
+            <h3>Automação Jurídica — PJe & e-Proc</h3>
+            <div class="project-type">Automação · Processos Jurídicos</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Solução de automação para pesquisa e acompanhamento de processos judiciais nos sistemas PJe e e-Proc, reduzindo drasticamente o tempo de consulta manual no escritório de advocacia.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Selenium</span>
+            <span class="tag">Automação</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a href="https://leticiammholanda.github.io/portfolio_de_projetos/" class="project-link" target="_blank">
+            ↗ Ver Portfólio
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-emoji">📋</div>
+          <div class="project-header-text">
+            <h3>Pipeline eSocial — Extração e Análise</h3>
+            <div class="project-type">ETL · Dados Trabalhistas</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <p>Pipeline completo para extração de dados de arquivos XML do eSocial, automação de eventos e geração de papéis de trabalho para análise de obrigações trabalhistas.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">XML</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">eSocial</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <a href="https://leticiammholanda.github.io/portfolio_de_projetos/" class="project-link" target="_blank">
+            ↗ Ver Portfólio
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Vamos conversar?</h2>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>Estou sempre aberta a novas oportunidades, projetos colaborativos e conversas sobre dados e tecnologia.</p>
+        <p>Seja para uma posição de analista ou cientista de dados, ou para discutir soluções de automação — sinta-se à vontade para entrar em contato!</p>
+        <div class="contact-links">
+          <a href="mailto:leticiammholanda2@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            leticiammholanda2@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/leticiammholanda/" class="contact-link" target="_blank">
+            <span class="contact-link-icon">💼</span>
+            linkedin.com/in/leticiammholanda
+          </a>
+          <a href="https://leticiammholanda.github.io/portfolio_de_projetos/" class="contact-link" target="_blank">
+            <span class="contact-link-icon">🐙</span>
+            Portfólio no GitHub
+          </a>
+        </div>
+      </div>
+      <div class="contact-cta reveal">
+        <h3>Disponível para<br/>oportunidades</h3>
+        <p>Cientista de Dados Jr. · Analista de Dados · Desenvolvedora Python</p>
+        <a href="mailto:leticiammholanda2@gmail.com" class="btn btn-primary">Enviar E-mail →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Desenvolvido por <a href="#">Letícia Holanda</a> · 2025 · Piauí, Brasil</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
